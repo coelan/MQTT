@@ -1,3 +1,6 @@
-MQTT / Node-red / Grafana
+MQTT / Node-red / InfluxDB / Grafana
+
 https://www.youtube.com/watch?v=9nZtiwD8wGc
 http://www.internetoflego.com/weather-station-dht11-mqtt-node-red-google-chart-oh-my/
+https://bentek.fr/mosquitto-node-red-raspberry-pi/
+
