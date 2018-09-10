@@ -6,8 +6,6 @@ Author: limpas guy
 
 
 #include <Wire.h>
-//#include <Adafruit_Sensor.h>
-//#include <Adafruit_BME280.h>
 #include <SPI.h>
 #include <Ethernet.h>
 #include <PubSubClient.h>
@@ -19,6 +17,7 @@ int led_Vert = 6;
 int led_Red = 5;
 int led_Jaune = 3;
 
+
 // Mettre à jour les 3 lignes suivantes selon votre configuration réseau:
 byte mac[] = { 0xFB, 0xA2, 0xDA, 0x0E, 0xD1, 0xFB }; // mac adress shield Ethernet
 IPAddress ip(192, 168, 1, 70);     // (192.168.1.70) adresse IP carte UNO
@@ -26,8 +25,6 @@ IPAddress server(192, 168, 1, 11);   //(192.168.1.11);  // Broker
 
 //#define mqtt_user "moi"         // Si configuré sur le Broker !
 //#define mqtt_password "motdepasse" // Si configuré sur le Broker !
-
-
 
 long lastMsg = 0;
 int value = 0;
@@ -86,7 +83,9 @@ void callback(char* topic, byte* payload, unsigned int length)
     }
   }
 }
+// Fin fonction appelée lors de la réception d'un topic + traitement du payload
 
+// Fonction connexion
 EthernetClient ethClient;
 PubSubClient client(ethClient);
 
@@ -114,7 +113,7 @@ void reconnect() {
     }
   }
 }
-
+// Fin fonction connexion
 
 void setup()
 {
@@ -141,7 +140,7 @@ void loop()
     reconnect();
   }
   client.loop();
-/*
+
   long now = millis();
   if (now - lastMsg > 5000) // toute les 5 secondes on envoi les mesures au Broker
   {
@@ -166,7 +165,5 @@ void loop()
     client.publish("stationUno/altitude", t);
 
     Serial.println("Publish message du BME280");
-
   }
-  */
 }
