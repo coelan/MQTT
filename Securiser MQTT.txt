@@ -10,3 +10,7 @@ Sécuriser le broker :
 Configurer login :
 -< sudo mosquitto_passwd -c /etc/mosquitto/pwfile (user)
 (renvoie invite de mot de passe)
+
+
+Test :
+-< mosquitto_sub -d -u (user) -P (password) 
