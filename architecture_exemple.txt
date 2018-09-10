@@ -1,0 +1,23 @@
+
+"capteur #1" = Arduino Uno + internet Shield + Leds + capteur BME280 (temp/hum/pression en I2C)
+
+Raspb (broker MQTT) + switch pour leds capteur #1
+
+"capteur #2" = Module EPS12 (ESP8266 wifi intégré) + capteur HTU21D (Temp, humidité en I2C)
+------------------------------------------
+Utiliser DHCP fixe
+ESP12 : programme à intégrer, lecture données -> broker MQTT via library MQTT pour arduino&ESP12 (la même)
+MacOs ok
+
+
+------------------------------------
+
+Exemple (https://www.youtube.com/watch?v=ubqzvbox5dc) :
+- arduino + BME280 -> BME280 envoie les données au brokker sous forme publish.
+- Peut également recevoir des topics (exemple contrôler les leds)
+- Les topics peuvent commander des actions dans le code -> allumer/éteindre leds
+- depuis un rasp :
+  - rasp subscrire à un topic poussé par Arduino (exemple topic tempéraure du BME280) :
+    -< mosquitto_sub -h (IP broker) -t stationuno/temperature
+  - pour commander une led depuis rasp (publish un payload sur un topic) :
+    -< mosquitto_pub -h (IP_broker) -t stationuno/switchBleu -m "ON"
