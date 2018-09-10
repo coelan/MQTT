@@ -1,0 +1,27 @@
+Installation Mosqitto :
+-< sudo apt-get update && sudo apt-get upgrade
+-< sudo apt-get install mosquitto
+-< sudo apt-get install mosquitto-clients
+
+Bilbiothèque Arduino & ESP12 MQTT :
+
+Librairie MQTT pour python :
+-< pip install paho-mqtt
+
+-< sudo reboot now
+
+Démarrage du broker :
+via VNC -> interface graphique raspberry
+Broker écoute sur 192.168.1.xxx:1883
+
+Créer un topic :
+  ouvrir 2 terminaux sous VNC
+  T1 : Souscrire à un topic -> le terminal attend ensuite l'arrivée d'un payload de topic vers le topic souscrit
+    format : mosquitto_sub -h (IP broker) -t (topic)
+    -< mosquitto_sub -h 192.168.1.xxx -t youtube/test
+
+  T2 : Publish un payload vers un topic
+    format : mosquitto_pub -h (IP broker) -t (topic) -m "message"
+    -< mosquitto_pub -h 192.168.1.xxx -t youtube/test -m "essai 001"
+
+  Réception du topic dans le T1
