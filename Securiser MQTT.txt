@@ -13,4 +13,9 @@ Configurer login :
 
 
 Test :
--< mosquitto_sub -d -u (user) -P (password) 
+-< mosquitto_sub -d -u (user) -P (password) -t (topic)
+en attente de payload
+sur autre terminal :
+-< mosquitto_pub -d -u (user) -P (password) -t (topic) -m "message"
+
+hello
