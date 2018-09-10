@@ -21,8 +21,8 @@ int led_Jaune = 3;
 
 // Mettre à jour les 3 lignes suivantes selon votre configuration réseau:
 byte mac[] = { 0xFB, 0xA2, 0xDA, 0x0E, 0xD1, 0xFB }; // mac adress shield Ethernet
-IPAddress ip(192, 168, 0, 70);     // (192, 168, 0, 70) adresse IP carte UNO
-IPAddress server(192, 168, 0, 11);   //(192, 168, 0, 11);  // Broker
+IPAddress ip(192, 168, 1, 70);     // (192.168.1.70) adresse IP carte UNO
+IPAddress server(192, 168, 1, 11);   //(192.168.1.11);  // Broker
 
 //#define mqtt_user "moi"         // Si configuré sur le Broker !
 //#define mqtt_password "motdepasse" // Si configuré sur le Broker !
