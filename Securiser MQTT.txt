@@ -1,0 +1,12 @@
+Sécuriser le broker :
+-< cd /etc/mosquitto
+-< sudo nano mosquitto.conf
+  Supprimer la dernière ligne :
+    include_dir /etc/mosquitto/conf.d
+  Ajouter 2 lignes :
+  -< allow_anonymous false
+  -< password_file /etc/mosquitto/pwfile
+
+Configurer login :
+-< sudo mosquitto_passwd -c /etc/mosquitto/pwfile (user)
+(renvoie invite de mot de passe)
